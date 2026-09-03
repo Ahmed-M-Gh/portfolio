@@ -497,7 +497,6 @@ header .navbar ul li a:hover::before {
   color: var(--text-dark);
   line-height: 1.2;
   margin-bottom: 1.5rem;
-  animation: fadeInUp 0.8s ease;
 }
 
 .home .content h2 span {
@@ -519,7 +518,6 @@ header .navbar ul li a:hover::before {
   font-weight: 600;
   padding: 1rem 0;
   margin-bottom: 2rem;
-  animation: fadeInUp 1s ease;
   opacity: 0.9;
 }
 
@@ -551,7 +549,6 @@ header .navbar ul li a:hover::before {
   overflow: hidden;
   z-index: 1;
   transition: var(--transition);
-  animation: fadeInUp 1.2s ease;
 }
 
 .home .btn::before {
@@ -605,7 +602,6 @@ header .navbar ul li a:hover::before {
   align-items: center;
   z-index: 2;
   position: relative;
-  animation: fadeInRight 1s ease;
 }
 
 .home .image img {
