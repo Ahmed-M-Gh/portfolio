@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Ghoneim — Artificial Intelligence Developer & Team Lead</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- External Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        ink: {
+                            900: '#0c0d10',
+                            800: '#14161c',
+                            700: '#1d2029',
+                            600: '#2a2e3b',
+                            border: '#272a36'
+                        },
+                        tangerine: {
+                            500: '#ff5e36',
+                            600: '#e04722',
+                            glow: 'rgba(255, 94, 54, 0.25)'
+                        },
+                        acid: {
+                            400: '#d4ff32',
+                            500: '#bce619'
+                        },
+                        paper: '#f4f3ef'
+                    },
+                    fontFamily: {
+                        heading: ['Space Grotesk', 'sans-serif'],
+                        body: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-ink-900 text-slate-200 antialiased selection:bg-tangerine-500 selection:text-white relative bg-noise">
+
+    <!-- Background Grid Lines -->
+    <div class="fixed inset-0 grid-lines pointer-events-none z-0 opacity-70"></div>
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-ink-900/80 border-b border-ink-border transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Brand / Name -->
+                <a href="#hero" class="flex items-center gap-3 group">
+                    <div class="w-9 h-9 rounded-lg bg-tangerine-500 text-ink-900 font-heading font-bold flex items-center justify-center text-lg group-hover:rotate-6 transition-transform">
+                        A
+                    </div>
+                    <div>
+                        <div class="font-heading font-bold text-white tracking-tight text-base leading-none group-hover:text-tangerine-500 transition-colors">
+                            Ahmed Ghoneim
+                        </div>
+                        <div class="text-[11px] font-mono text-slate-400 mt-1">AI Developer & Team Lead</div>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center gap-8 font-heading text-sm font-medium text-slate-300">
+                    <a href="#about" class="hover:text-tangerine-500 transition-colors">01. About</a>
+                    <a href="#skills" class="hover:text-tangerine-500 transition-colors">02. Skills</a>
+                    <a href="#education" class="hover:text-tangerine-500 transition-colors">03. Education</a>
+                    <a href="#works" class="hover:text-tangerine-500 transition-colors">04. Selected Works</a>
+                    <a href="#experience" class="hover:text-tangerine-500 transition-colors">05. Experience</a>
+                </nav>
+
+                <!-- Status Badge & CTA -->
+                <div class="hidden sm:flex items-center gap-4">
+                    <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-ink-800 border border-ink-border text-xs font-mono text-slate-300">
+                        <span class="w-2 h-2 rounded-full bg-acid-400 animate-pulse"></span>
+                        <span id="liveClock">Cairo • --:-- GMT+2</span>
+                    </div>
+                    <a href="#contact" class="px-5 py-2.5 rounded-xl bg-tangerine-500 hover:bg-tangerine-600 text-ink-900 font-heading font-bold text-sm transition-all shadow-lg shadow-tangerine-500/20 hover:shadow-tangerine-500/40">
+                        Start a Project
+                    </a>
+                </div>
+
+                <!-- Mobile Navigation Toggle -->
+                <button id="mobileNavBtn" aria-label="Toggle navigation" class="md:hidden p-2 rounded-lg bg-ink-800 border border-ink-border text-slate-300 hover:text-white">
+                    <i class="fa-solid fa-bars text-xl" id="navIcon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileNav" class="hidden md:hidden bg-ink-900 border-b border-ink-border px-6 py-6 space-y-4 font-heading text-base">
+            <a href="#about" class="block text-slate-300 hover:text-tangerine-500 py-1">01. About</a>
+            <a href="#skills" class="block text-slate-300 hover:text-tangerine-500 py-1">02. Skills</a>
+            <a href="#education" class="block text-slate-300 hover:text-tangerine-500 py-1">03. Education</a>
+            <a href="#works" class="block text-slate-300 hover:text-tangerine-500 py-1">04. Selected Works</a>
+            <a href="#experience" class="block text-slate-300 hover:text-tangerine-500 py-1">05. Experience</a>
+            <a href="#contact" class="block w-full text-center py-3 rounded-xl bg-tangerine-500 text-ink-900 font-bold mt-4">Start a Project</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="pt-32 pb-20 lg:pt-40 lg:pb-28 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Column: Hero Details -->
+                <div class="lg:col-span-7 space-y-6">
+                    <!-- Tagline Badge -->
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-ink-800 border border-ink-border text-xs font-mono text-tangerine-500">
+                        <i class="fa-solid fa-brain text-acid-400"></i>
+                        <span>Production-Ready Intelligent Systems</span>
+                    </div>
+
+                    <!-- Main Editorial Headline -->
+                    <h1 class="text-4xl sm:text-6xl lg:text-6xl font-heading font-extrabold text-white tracking-tight leading-[1.08]">
+                        Designing & Deploying AI Models That <span class="underline decoration-tangerine-500 decoration-wavy decoration-2 underline-offset-8">Scale.</span>
+                    </h1>
+
+                    <!-- Subheading -->
+                    <p class="text-lg sm:text-xl text-slate-400 max-w-2xl font-normal leading-relaxed pt-2">
+                        AI Team Leader at ECRADOME & ML Leader at GDGC. Committed to bridging the gap between AI research and production using LLMs, RAG, NLP, Computer Vision, and Cloud Deployment.
+                    </p>
+
+                    <!-- Action CTAs -->
+                    <div class="pt-4 flex flex-wrap items-center gap-4">
+                        <a href="#works" class="px-7 py-4 rounded-xl bg-tangerine-500 hover:bg-tangerine-600 text-ink-900 font-heading font-bold text-base transition-all flex items-center gap-3 shadow-lg shadow-tangerine-500/25">
+                            <span>Explore Selected Works</span>
+                            <i class="fa-solid fa-arrow-down text-sm"></i>
+                        </a>
+                        <a href="#contact" class="px-7 py-4 rounded-xl bg-ink-800 hover:bg-ink-700 border border-ink-border text-white font-heading font-semibold text-base transition-all">
+                            Let's Talk Business
+                        </a>
+                        <a href="./assets/docs/Resume.pdf" target="_blank" onclick="showNotification('Opening Resume PDF...')" class="p-4 rounded-xl bg-ink-800 hover:bg-ink-700 border border-ink-border text-slate-300 hover:text-white transition-all" title="View Resume">
+                            <i class="fa-solid fa-file-arrow-down text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Profile Image -->
+                <div class="lg:col-span-5 flex justify-center lg:justify-end">
+                    <div class="relative group max-w-sm w-full">
+                        <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-tangerine-500 to-acid-400 opacity-20 blur-xl group-hover:opacity-40 transition duration-500"></div>
+                        <div class="relative bento-card p-3 overflow-hidden rounded-3xl border border-ink-border">
+                            <img src="./assets/images/profile.jpeg" alt="Ahmed Ghoneim" class="w-full h-[380px] object-cover rounded-2xl filter grayscale group-hover:grayscale-0 transition-all duration-500" onerror="this.src='profile.jpeg'"/>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Key Metric Strips -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 pt-8 border-t border-ink-border">
+                <div class="p-4 rounded-xl bg-ink-800/50 border border-ink-border/60">
+                    <div class="font-heading font-bold text-3xl text-white">02+</div>
+                    <div class="text-xs text-slate-400 font-mono mt-1 uppercase">Years Leadership</div>
+                </div>
+                <div class="p-4 rounded-xl bg-ink-800/50 border border-ink-border/60">
+                    <div class="font-heading font-bold text-3xl text-tangerine-500">10+</div>
+                    <div class="text-xs text-slate-400 font-mono mt-1 uppercase">AI Systems Shipped</div>
+                </div>
+                <div class="p-4 rounded-xl bg-ink-800/50 border border-ink-border/60">
+                    <div class="font-heading font-bold text-3xl text-acid-400">4th</div>
+                    <div class="text-xs text-slate-400 font-mono mt-1 uppercase">Regional RAG Hackathon</div>
+                </div>
+                <div class="p-4 rounded-xl bg-ink-800/50 border border-ink-border/60">
+                    <div class="font-heading font-bold text-3xl text-white">100%</div>
+                    <div class="text-xs text-slate-400 font-mono mt-1 uppercase">Production Focused</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Bento Grid: About & Mindset -->
+    <section id="about" class="py-24 relative z-10 border-t border-ink-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+                <div>
+                    <span class="text-xs font-mono text-tangerine-500 uppercase tracking-widest">// 01. INTRO & MINDSET</span>
+                    <h2 class="text-3xl sm:text-5xl font-heading font-bold text-white mt-2">Bento Spotlight</h2>
+                </div>
+                <p class="text-slate-400 text-sm max-w-md">
+                    Student of BS Computer Science at OUIT. Expert in designing and deploying ML models that enhance user experience and drive business growth.
+                </p>
+            </div>
+
+            <!-- Bento Layout Matrix -->
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                
+                <div class="bento-card p-8 md:col-span-2 lg:col-span-2 flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-lg bg-tangerine-500/10 text-tangerine-500 flex items-center justify-center text-lg mb-6 border border-tangerine-500/20">
+                            <i class="fa-solid fa-compass"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-2xl text-white mb-3">AI Engineering Philosophy</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            I focus on bridging the gap between research and production. Every model and RAG pipeline is built for high precision, low latency, and real-world utility—driving real value through data-centric AI strategies.
+                        </p>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-ink-border flex items-center gap-4 text-xs font-mono text-slate-400">
+                        <span><i class="fa-solid fa-check text-acid-400 mr-1"></i> Curriculum Grounding</span>
+                        <span><i class="fa-solid fa-check text-acid-400 mr-1"></i> Production RAG</span>
+                    </div>
+                </div>
+
+                <div class="bento-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono text-slate-400 uppercase">Core Focus</span>
+                            <i class="fa-solid fa-layer-group text-tangerine-500"></i>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="p-2.5 rounded-lg bg-ink-800 border border-ink-border flex items-center justify-between text-xs">
+                                <span class="font-semibold text-white">RAG Systems</span>
+                                <span class="font-mono text-tangerine-500">Orchestration</span>
+                            </div>
+                            <div class="p-2.5 rounded-lg bg-ink-800 border border-ink-border flex items-center justify-between text-xs">
+                                <span class="font-semibold text-white">Machine Learning</span>
+                                <span class="font-mono text-acid-400">Core ML</span>
+                            </div>
+                            <div class="p-2.5 rounded-lg bg-ink-800 border border-ink-border flex items-center justify-between text-xs">
+                                <span class="font-semibold text-white">FastAPI & Cloud</span>
+                                <span class="font-mono text-sky-400">Deployment</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#works" class="text-xs font-mono text-tangerine-500 hover:underline mt-4 block">Explore Selected Works →</a>
+                </div>
+
+                <div class="bento-card p-6 flex flex-col justify-between bg-gradient-to-b from-ink-800/80 to-ink-800/30">
+                    <div class="space-y-4">
+                        <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-acid-400/10 text-acid-400 border border-acid-400/20 text-xs font-mono">
+                            <span class="w-2 h-2 rounded-full bg-acid-400 animate-ping"></span>
+                            Available for Hire
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-white">Based in Cairo, Egypt</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Open for AI contracts, Team Leadership, GenAI integration, and remote collaborations globally.
+                        </p>
+                    </div>
+                    <div class="pt-4 text-xs font-mono text-slate-400 flex items-center gap-2">
+                        <i class="fa-solid fa-earth-africa text-tangerine-500"></i> Cairo, Egypt (GMT+2)
+                    </div>
+                </div>
+
+                <div class="bento-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono text-slate-400 uppercase">Focus State</span>
+                            <i class="fa-solid fa-microchip text-acid-400"></i>
+                        </div>
+                        <div class="p-3 rounded-xl bg-ink-800 border border-ink-border flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-tangerine-500/20 text-tangerine-500 flex items-center justify-center font-bold">
+                                <i class="fa-solid fa-terminal"></i>
+                            </div>
+                            <div class="overflow-hidden">
+                                <div class="text-xs font-bold text-white truncate">LLM Prompt Engineering</div>
+                                <div class="text-[10px] text-slate-400 truncate">RAG Architecture & Optimization</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between text-xs text-slate-400 pt-3">
+                        <span>Research / Code Ratio:</span>
+                        <span class="font-mono text-acid-400 font-bold">1:1</span>
+                    </div>
+                </div>
+
+                <div class="bento-card p-8 md:col-span-2 lg:col-span-3 flex flex-col md:flex-row items-center gap-6">
+                    <div class="w-16 h-16 rounded-2xl bg-acid-400/10 border border-acid-400/20 text-acid-400 flex items-center justify-center text-3xl shrink-0">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <div class="space-y-2 text-center md:text-left">
+                        <h3 class="font-heading font-bold text-xl text-white">Advanced RAG & Intelligent Agents</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Building production-grade Retrieval-Augmented Generation (RAG) platforms, vector store embeddings, semantic search, and autonomous multi-agent workflows.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Static Skills Section (Updated Custom Stack) -->
+    <section id="skills" class="py-20 relative z-10 border-t border-ink-border bg-ink-800/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+                <div>
+                    <span class="text-xs font-mono text-acid-400 uppercase tracking-widest">// 02. FULL-STACK AI CAPABILITIES</span>
+                    <h2 class="text-3xl sm:text-4xl font-heading font-bold text-white mt-1">Skills & Technical Expertise</h2>
+                </div>
+                <p class="text-slate-400 text-sm max-w-md">
+                    Core technical stack spanning Large Language Models, Deep Learning architectures, and model deployment.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Category 1: Generative AI, LLMs & Agents -->
+                <div class="bento-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-tangerine-500/10 border border-tangerine-500/20 text-tangerine-500 flex items-center justify-center text-lg mb-4">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg text-white mb-2">GenAI, LLMs & Agents</h3>
+                        <p class="text-xs text-slate-400 mb-6">Orchestrating agentic workflows, RAG pipelines, and semantic retrieval systems.</p>
+                        
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded-lg bg-ink-800 border border-ink-border text-xs font-mono text-slate-200">LangChain</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-ink-800 border border-ink-border text-xs font-mono text-slate-200">LangGraph</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-ink-800 border border-ink-border text-xs font-mono text-slate-200">LlamaIndex</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-ink-800 border border-ink-border text-xs font-mono text-slate-200">Advanced RAG</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-ink-800 border border-ink-border text-xs font-mono text-slate-200">Vector DBs (Qdrant/Pinecone/Chroma)</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-ink-800 border border-ink-border text-xs font-mono text-slate-200">Prompt Engineering</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 2: Machine Learning & Deep Learning -->
+                <div class="bento-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-acid-400/10 border border-acid-400/20 text-acid-400 flex items-center justify-center text-lg mb-4">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg text-white mb-2">Machine & Deep Learning</h3>
+                        <p class="text-xs text-slate-400 mb-6">Building, training, and optimizing classical algorithms and deep neural net architectures.</p>
+                        
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded-lg bg-ink-800 border border-ink-border text-xs font-mono text-slate-200">PyTorch</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-ink-800 border border-ink-border text-xs font-mono text-slate-200">TensorFlow / Keras</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-ink-800 border border-ink-border text-xs font-mono text-slate-200">Scikit-Learn</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-ink-800 border border-ink-border text-xs font-mono text-slate-200">XGBoost / LightGBM</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-ink-800 border border-ink-border text-xs font-mono text-slate-200">Transformers (Hugging Face)</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-ink-800 border border-ink-border text-xs font-mono text-slate-200">CNNs / RNNs / GANs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 3: Computer Vision & Speech/NLP -->
+                <div class="bento-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-sky-400/10 border border-sky-400/20 text-sky-400 flex items-center justify-center text-lg mb-4">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg text-white mb-2">Computer Vision & NLP</h3>
+                        <p class="text-xs text-slate-400 mb-6">Perception models, real-time object detection, pose estimation, and speech processing.</p>
+                        
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded-lg bg-ink-800 border border-ink-border text-xs font-mono text-slate-200">OpenCV</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-ink-800 border border-ink-border text-xs font-mono text-slate-200">YOLO (v8/v11)</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-ink-800 border border-ink-border text-xs font-mono text-slate-200">MediaPipe</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-ink-800 border border-ink-border text-xs font-mono text-slate-200">Bilingual NLP (Arabic/English)</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-ink-800 border border-ink-border text-xs font-mono text-slate-200">NLTK / spaCy</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-ink-800 border border-ink-border text-xs font-mono text-slate-200">Whisper (STT/TTS)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 4: Deployment & API Serving -->
+                <div class="bento-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-purple-400/10 border border-purple-400/20 text-purple-400 flex items-center justify-center text-lg mb-4">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg text-white mb-2">Deployment & API Serving</h3>
+                        <p class="text-xs text-slate-400 mb-6">Containerization, microservices deployment, and UI prototyping.</p>
+                        
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded-lg bg-ink-800 border border-ink-border text-xs font-mono text-slate-200">FastAPI / Flask</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-ink-800 border border-ink-border text-xs font-mono text-slate-200">Docker</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-ink-800 border border-ink-border text-xs font-mono text-slate-200">CI/CD Pipelines</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-ink-800 border border-ink-border text-xs font-mono text-slate-200">Streamlit / Gradio</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 5: Data Processing -->
+                <div class="bento-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-emerald-400/10 border border-emerald-400/20 text-emerald-400 flex items-center justify-center text-lg mb-4">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg text-white mb-2">Data Processing</h3>
+                        <p class="text-xs text-slate-400 mb-6">Data manipulation, cleaning, and feature engineering.</p>
+                        
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded-lg bg-ink-800 border border-ink-border text-xs font-mono text-slate-200">Pandas</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-ink-800 border border-ink-border text-xs font-mono text-slate-200">NumPy</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-ink-800 border border-ink-border text-xs font-mono text-slate-200">Matplotlib</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-ink-800 border border-ink-border text-xs font-mono text-slate-200">seaborn</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 6: Software Engineering & Math -->
+                <div class="bento-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-amber-400/10 border border-amber-400/20 text-amber-400 flex items-center justify-center text-lg mb-4">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg text-white mb-2">Software Engineering & Math</h3>
+                        <p class="text-xs text-slate-400 mb-6">Core computer science foundations, clean code practices, and mathematical fundamentals.</p>
+                        
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded-lg bg-ink-800 border border-ink-border text-xs font-mono text-slate-200">Python (Advanced)</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-ink-800 border border-ink-border text-xs font-mono text-slate-200">C++</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-ink-800 border border-ink-border text-xs font-mono text-slate-200">Data Structures & Algorithms</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-ink-800 border border-ink-border text-xs font-mono text-slate-200">Git / GitHub Actions</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-ink-800 border border-ink-border text-xs font-mono text-slate-200">Linear Algebra & Calculus</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-ink-800 border border-ink-border text-xs font-mono text-slate-200">Probability & Statistics</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-24 relative z-10 border-t border-ink-border">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center space-y-3 mb-12">
+                <span class="text-xs font-mono text-acid-400 uppercase tracking-widest">// 03. ACADEMIC BACKGROUND</span>
+                <h2 class="text-3xl sm:text-4xl font-heading font-bold text-white">Education & Qualifications</h2>
+            </div>
+
+            <div class="grid md:grid-cols-1 gap-6">
+                <div class="bento-card p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                    <div class="flex items-center gap-5">
+                        <div class="w-14 h-14 rounded-2xl bg-acid-400/10 border border-acid-400/20 text-acid-400 flex items-center justify-center text-2xl shrink-0">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <div>
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-ink-800 text-acid-400 border border-ink-border">BACHELOR'S DEGREE</span>
+                            <h3 class="font-heading font-bold text-xl text-white mt-1">BS in Computer Science</h3>
+                            <div class="text-xs font-mono text-slate-400 mt-0.5">Obour University Information & Technology (OUIT)</div>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed max-w-md">
+                        Focused on Computer Science fundamentals, Machine Learning Algorithms, Data Structures, Neural Networks, and Distributed AI Architectures.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Selected Works Section -->
+    <section id="works" class="py-24 relative z-10 border-t border-ink-border bg-ink-800/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <span class="text-xs font-mono text-tangerine-500 uppercase tracking-widest">// 04. PROVEN RESULTS</span>
+                    <h2 class="text-3xl sm:text-5xl font-heading font-bold text-white mt-2">Selected Works</h2>
+                </div>
+
+                <div class="flex flex-wrap gap-2" id="workFilters">
+                    <button onclick="filterWorks('all')" class="work-filter-btn px-4 py-2 rounded-xl text-xs font-mono font-bold bg-tangerine-500 text-ink-900 transition-all" data-category="all">ALL [06]</button>
+                    <button onclick="filterWorks('rag')" class="work-filter-btn px-4 py-2 rounded-xl text-xs font-mono font-bold bg-ink-800 text-slate-300 border border-ink-border hover:text-white transition-all" data-category="rag">RAG / LLM</button>
+                    <button onclick="filterWorks('vision')" class="work-filter-btn px-4 py-2 rounded-xl text-xs font-mono font-bold bg-ink-800 text-slate-300 border border-ink-border hover:text-white transition-all" data-category="vision">COMPUTER VISION</button>
+                    <button onclick="filterWorks('ml')" class="work-filter-btn px-4 py-2 rounded-xl text-xs font-mono font-bold bg-ink-800 text-slate-300 border border-ink-border hover:text-white transition-all" data-category="ml">ML & PREDICTIVE</button>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="worksGrid">
+                
+                <!-- Work 1: AI RecruitPRO -->
+                <div class="work-card rag bento-card overflow-hidden group flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-52 bg-ink-900 overflow-hidden border-b border-ink-border flex items-center justify-center p-4">
+                            <img src="./assets/images/projects/recruit-pro.png" alt="AI RecruitPro" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x480/1d2029/ffffff?text=AI+RecruitPRO'"/>
+                            <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-ink-900/80 backdrop-blur-md border border-ink-border text-[10px] font-mono text-acid-400">
+                                Intelligent Recruitment
+                            </div>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <h3 class="font-heading font-bold text-xl text-white group-hover:text-tangerine-500 transition-colors">AI RecruitPRO</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed line-clamp-3">
+                                An Intelligent Recruitment System featuring Semantic Search, Interview Analysis, and an AI-powered Interview Assistant.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 space-y-4">
+                        <div class="flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
+                            <span class="px-2 py-0.5 rounded bg-ink-800 border border-ink-border">LangChain</span>
+                            <span class="px-2 py-0.5 rounded bg-ink-800 border border-ink-border">FastAPI</span>
+                            <span class="px-2 py-0.5 rounded bg-ink-800 border border-ink-border">Streamlit</span>
+                        </div>
+                        <div class="pt-3 border-t border-ink-border flex items-center justify-between">
+                            <button onclick="openWorkModal('AI RecruitPRO', 'An Intelligent Recruitment System equipped with semantic search capabilities, interview performance analysis, and automated candidate screening assistants.', ['LangChain', 'Python', 'FastAPI', 'Streamlit', 'OpenAI'], './assets/images/projects/recruit-pro.png', 'Automated resume screening & semantic match scoring.', 'https://github.com/Ahmed-M-Gh/Recruit-Pro')" class="text-xs font-mono font-bold text-tangerine-500 hover:underline flex items-center gap-1">
+                                Read Case Study →
+                            </button>
+                            <span class="text-xs font-mono text-slate-500">2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work 2: ALSense -->
+                <div class="work-card rag bento-card overflow-hidden group flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-52 bg-ink-900 overflow-hidden border-b border-ink-border flex items-center justify-center p-4">
+                            <img src="./assets/images/projects/alsense.jpg" alt="ALSense" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x480/1d2029/ffffff?text=ALSense+Medical+AI'"/>
+                            <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-ink-900/80 backdrop-blur-md border border-ink-border text-[10px] font-mono text-tangerine-500">
+                                Healthcare RAG
+                            </div>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <h3 class="font-heading font-bold text-xl text-white group-hover:text-tangerine-500 transition-colors">ALSense Monitoring Engine</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed line-clamp-3">
+                                AI-powered ALS patient monitoring system featuring clinical trend analysis, RAG-based medical reports, and evidence grounding.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 space-y-4">
+                        <div class="flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
+                            <span class="px-2 py-0.5 rounded bg-ink-800 border border-ink-border">RAG System</span>
+                            <span class="px-2 py-0.5 rounded bg-ink-800 border border-ink-border">PyTorch</span>
+                            <span class="px-2 py-0.5 rounded bg-ink-800 border border-ink-border">FastAPI</span>
+                        </div>
+                        <div class="pt-3 border-t border-ink-border flex items-center justify-between">
+                            <button onclick="openWorkModal('ALSense Monitoring Engine', 'AI-powered ALS patient monitoring with clinical trend analysis, RAG-driven medical report generation, evidence grounding, and automated emergency notifications.', ['RAG', 'PyTorch', 'FastAPI', 'LangChain', 'Python'], './assets/images/projects/alsense.jpg', 'High-precision medical grounding with clinical evidence validation.', 'https://github.com/Ahmed-M-Gh/ALSense')" class="text-xs font-mono font-bold text-tangerine-500 hover:underline flex items-center gap-1">
+                                Read Case Study →
+                            </button>
+                            <span class="text-xs font-mono text-slate-500">2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work 3: Football Analyzer -->
+                <div class="work-card vision bento-card overflow-hidden group flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-52 bg-ink-900 overflow-hidden border-b border-ink-border flex items-center justify-center p-4">
+                            <img src="./assets/images/projects/football-analyzer.jpg" alt="Football Analyzer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x480/1d2029/ffffff?text=Football+Analyzer'"/>
+                            <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-ink-900/80 backdrop-blur-md border border-ink-border text-[10px] font-mono text-sky-400">
+                                Vision & Chatbot
+                            </div>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <h3 class="font-heading font-bold text-xl text-white group-hover:text-tangerine-500 transition-colors">Football Analyzer</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed line-clamp-3">
+                                Computer vision system analyzing training video metrics (speed, shooting angle) paired with an interactive AI football expert chatbot.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 space-y-4">
+                        <div class="flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
+                            <span class="px-2 py-0.5 rounded bg-ink-800 border border-ink-border">Computer Vision</span>
+                            <span class="px-2 py-0.5 rounded bg-ink-800 border border-ink-border">OpenCV</span>
+                            <span class="px-2 py-0.5 rounded bg-ink-800 border border-ink-border">LLM Chatbot</span>
+                        </div>
+                        <div class="pt-3 border-t border-ink-border flex items-center justify-between">
+                            <button onclick="openWorkModal('Football Analyzer', 'An intelligent analytics system analyzing football video footage to calculate physical metrics (speed, power, movement patterns) combined with an LLM conversational assistant.', ['Computer Vision', 'OpenCV', 'PyTorch', 'LLMs', 'Streamlit'], './assets/images/projects/football-analyzer.jpg', 'Real-time player trajectory tracking and kinematic analytics.', 'https://github.com/Ahmed-M-Gh/Football-Analyzer')" class="text-xs font-mono font-bold text-tangerine-500 hover:underline flex items-center gap-1">
+                                Read Case Study →
+                            </button>
+                            <span class="text-xs font-mono text-slate-500">2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work 4: Zaker Pro (ECRADOME) -->
+                <div class="work-card rag bento-card overflow-hidden group flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-52 bg-ink-900 overflow-hidden border-b border-ink-border flex items-center justify-center p-4">
+                            <img src="./assets/images/projects/zaker-pro.jpg" alt="Zaker Pro" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x480/1d2029/ffffff?text=Zaker+Pro'"/>
+                            <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-ink-900/80 backdrop-blur-md border border-ink-border text-[10px] font-mono text-tangerine-500">
+                                ECRADOME • EdTech RAG
+                            </div>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <h3 class="font-heading font-bold text-xl text-white group-hover:text-tangerine-500 transition-colors">Zaker Pro</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed line-clamp-3">
+                                A Retrieval-Augmented Generation (RAG) system answering students' questions strictly from official school curricula in Arabic and English, with automatic grade detection and page citations.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 space-y-4">
+                        <div class="flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
+                            <span class="px-2 py-0.5 rounded bg-ink-800 border border-ink-border">RAG System</span>
+                            <span class="px-2 py-0.5 rounded bg-ink-800 border border-ink-border">LangChain</span>
+                            <span class="px-2 py-0.5 rounded bg-ink-800 border border-ink-border">Bilingual AI</span>
+                        </div>
+                        <div class="pt-3 border-t border-ink-border flex items-center justify-between">
+                            <button onclick="openWorkModal('Zaker Pro', 'A Retrieval-Augmented Generation (RAG) system that answers students\' questions strictly from their official school curriculum, in Arabic and English, with automatic subject/grade detection and page-level source citations.', ['RAG', 'LangChain', 'FastAPI', 'Python', 'Bilingual NLP'], './assets/images/projects/zaker-pro.jpg', 'Strict curriculum grounding with page-level citations.', 'https://github.com/Ahmed-M-Gh/Zaker-Pro.git')" class="text-xs font-mono font-bold text-tangerine-500 hover:underline flex items-center gap-1">
+                                Read Case Study →
+                            </button>
+                            <span class="text-xs font-mono text-slate-500">2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work 5: RUL-Plain -->
+                <div class="work-card ml bento-card overflow-hidden group flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-52 bg-ink-900 overflow-hidden border-b border-ink-border flex items-center justify-center p-4">
+                            <img src="./assets/images/projects/rul-pain.jpg" alt="RUL-Plain" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x480/1d2029/ffffff?text=RUL-Plain'"/>
+                            <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-ink-900/80 backdrop-blur-md border border-ink-border text-[10px] font-mono text-acid-400">
+                                Predictive Maintenance
+                            </div>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <h3 class="font-heading font-bold text-xl text-white group-hover:text-tangerine-500 transition-colors">RUL-Plain</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed line-clamp-3">
+                                Predictive maintenance system estimating aircraft engine Remaining Useful Life (RUL) from sensor data using NASA's N-CMAPSS dataset and XGBoost.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 space-y-4">
+                        <div class="flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
+                            <span class="px-2 py-0.5 rounded bg-ink-800 border border-ink-border">XGBoost</span>
+                            <span class="px-2 py-0.5 rounded bg-ink-800 border border-ink-border">Streamlit</span>
+                            <span class="px-2 py-0.5 rounded bg-ink-800 border border-ink-border">NASA Dataset</span>
+                        </div>
+                        <div class="pt-3 border-t border-ink-border flex items-center justify-between">
+                            <button onclick="openWorkModal('RUL-Plain', 'Predictive maintenance system estimating aircraft engine Remaining Useful Life (RUL) from sensor data using the NASA N-CMAPSS dataset — XGBoost model deployed via Streamlit.', ['XGBoost', 'Python', 'Streamlit', 'Scikit-Learn', 'Feature Engineering'], './assets/images/projects/rul-pain.jpg', 'Accurate engine failure window estimation based on sensor telematics.', 'https://github.com/Ahmed-M-Gh/RUL-Plain.git')" class="text-xs font-mono font-bold text-tangerine-500 hover:underline flex items-center gap-1">
+                                Read Case Study →
+                            </button>
+                            <span class="text-xs font-mono text-slate-500">2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work 6: Fitness Tracker -->
+                <div class="work-card ml bento-card overflow-hidden group flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-52 bg-ink-900 overflow-hidden border-b border-ink-border flex items-center justify-center p-4">
+                            <img src="./assets/images/projects/tracker.jpg" alt="Fitness Tracker" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x480/1d2029/ffffff?text=Fitness+Tracker'"/>
+                            <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-ink-900/80 backdrop-blur-md border border-ink-border text-[10px] font-mono text-acid-400">
+                                Machine Learning & CV
+                            </div>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <h3 class="font-heading font-bold text-xl text-white group-hover:text-tangerine-500 transition-colors">AI Fitness Tracker</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed line-clamp-3">
+                                Computer vision application using pose estimation to recognize barbell exercise movements, evaluate form, and count reps automatically in real time.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 space-y-4">
+                        <div class="flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
+                            <span class="px-2 py-0.5 rounded bg-ink-800 border border-ink-border">Machine Learning</span>
+                            <span class="px-2 py-0.5 rounded bg-ink-800 border border-ink-border">Computer Vision</span>
+                            <span class="px-2 py-0.5 rounded bg-ink-800 border border-ink-border">Pose Tracking</span>
+                        </div>
+                        <div class="pt-3 border-t border-ink-border flex items-center justify-between">
+                            <button onclick="openWorkModal('AI Fitness Tracker', 'AI-driven fitness application that analyzes barbell exercises using pose estimation and computer vision, identifying specific movement forms and counting repetitions automatically in real-time.', ['Computer Vision', 'OpenCV', 'MediaPipe', 'Python'], './assets/images/projects/tracker.jpg', 'Real-time exercise classification & automatic repetition tracking.', 'https://github.com/Ahmed-M-Gh/Fitness-App.git')" class="text-xs font-mono font-bold text-tangerine-500 hover:underline flex items-center gap-1">
+                                Read Case Study →
+                            </button>
+                            <span class="text-xs font-mono text-slate-500">2024</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Experience Section -->
+    <section id="experience" class="py-24 relative z-10 border-t border-ink-border">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center space-y-3 mb-16">
+                <span class="text-xs font-mono text-tangerine-500 uppercase tracking-widest">// 05. WORK HISTORY & ACHIEVEMENTS</span>
+                <h2 class="text-3xl sm:text-4xl font-heading font-bold text-white">Experience & Leadership</h2>
+            </div>
+
+            <div class="space-y-8 relative before:absolute before:inset-0 before:left-3 sm:before:left-1/2 before:-ml-px before:w-0.5 before:bg-ink-border">
+                
+                <!-- Timeline Item 1 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-7 h-7 rounded-full bg-tangerine-500 text-ink-900 font-bold text-xs shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-lg shadow-tangerine-500/20">
+                        1
+                    </div>
+                    <div class="w-[calc(100%-2.5rem)] md:w-[calc(50%-2rem)] bento-card p-6">
+                        <div class="flex items-center justify-between gap-2 mb-1">
+                            <h3 class="font-heading font-bold text-base text-white">Machine Learning Leader</h3>
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-ink-800 text-tangerine-500 border border-ink-border">2025 - PRESENT</span>
+                        </div>
+                        <div class="text-xs font-mono text-slate-400 mb-3">Google Developer Groups on Campus (GDGC)</div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Spearheading ML project development for community initiatives, mentoring upcoming developers, and leading technical workshops on modern Machine Learning.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-7 h-7 rounded-full bg-ink-800 border border-ink-border text-slate-300 font-bold text-xs shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        2
+                    </div>
+                    <div class="w-[calc(100%-2.5rem)] md:w-[calc(50%-2rem)] bento-card p-6">
+                        <div class="flex items-center justify-between gap-2 mb-1">
+                            <h3 class="font-heading font-bold text-base text-white">AI Team Lead</h3>
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-ink-800 text-slate-400 border border-ink-border">2024 - PRESENT</span>
+                        </div>
+                        <div class="text-xs font-mono text-slate-400 mb-3">ECRADOME</div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Technical AI Team Lead designing and optimizing specialized Study RAG Systems (e.g. Zaker Pro) customized for school students and educational applications.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3: Hackathon -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-7 h-7 rounded-full bg-acid-400 text-ink-900 font-bold text-xs shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-lg shadow-acid-400/20">
+                        3
+                    </div>
+                    <div class="w-[calc(100%-2.5rem)] md:w-[calc(50%-2rem)] bento-card p-6 border-acid-400/30">
+                        <div class="flex items-center justify-between gap-2 mb-1">
+                            <h3 class="font-heading font-bold text-base text-white">4th Place — Regional AI Hackathon</h3>
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-ink-800 text-acid-400 border border-ink-border">AWARD</span>
+                        </div>
+                        <div class="text-xs font-mono text-slate-400 mb-3">RAG Architecture Challenge</div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Competed in a regional AI Hackathon focused on building high-precision Retrieval-Augmented Generation (RAG) systems, securing 4th place regionally among competitive engineering teams.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 relative z-10 border-t border-ink-border bg-ink-800/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid lg:grid-cols-12 gap-12">
+                
+                <!-- Left Info -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs font-mono text-tangerine-500 uppercase tracking-widest">// GET IN TOUCH</span>
+                    <h2 class="text-3xl sm:text-5xl font-heading font-bold text-white tracking-tight">Have an Idea? Let's Build It.</h2>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Currently available for freelance AI system development, RAG & LLM integration consulting, and technical leadership roles.
+                    </p>
+
+                    <div class="space-y-4 pt-4">
+                        <div class="bento-card p-4 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-tangerine-500/10 text-tangerine-500 flex items-center justify-center">
+                                    <i class="fa-regular fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <div class="text-[10px] font-mono text-slate-400 uppercase">Direct Email</div>
+                                    <div class="text-sm font-bold text-white">ahmedghoneim658@gmail.com</div>
+                                </div>
+                            </div>
+                            <button onclick="copyEmail('ahmedghoneim658@gmail.com')" class="p-2 text-slate-400 hover:text-tangerine-500 transition-colors" title="Copy Email">
+                                <i class="fa-regular fa-copy text-lg"></i>
+                            </button>
+                        </div>
+
+                        <div class="bento-card p-4 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-acid-400/10 text-acid-400 flex items-center justify-center">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <div class="text-[10px] font-mono text-slate-400 uppercase">Phone & WhatsApp</div>
+                                <div class="text-sm font-bold text-white">+20 106 169 3868</div>
+                            </div>
+                        </div>
+
+                        <div class="bento-card p-4 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-sky-400/10 text-sky-400 flex items-center justify-center">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <div class="text-[10px] font-mono text-slate-400 uppercase">Location</div>
+                                <div class="text-sm font-bold text-white">Cairo, Egypt</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Form -->
+                <div class="lg:col-span-7">
+                    <form id="contactForm" action="https://formsubmit.co/ahmedghoneim658@gmail.com" method="POST" class="bento-card p-6 sm:p-8 space-y-6">
+                        
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_subject" value="New Portfolio Inquiry - Ahmed Ghoneim">
+
+                        <div>
+                            <label class="block text-xs font-mono text-slate-400 uppercase mb-2">Select Project Scope</label>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                                <button type="button" onclick="selectScope(this, 'RAG & LLM Integration')" class="scope-btn p-3 rounded-xl bg-ink-800 border border-tangerine-500 text-xs font-mono text-tangerine-500 text-center transition-all">
+                                    RAG & LLM
+                                </button>
+                                <button type="button" onclick="selectScope(this, 'Computer Vision System')" class="scope-btn p-3 rounded-xl bg-ink-800 border border-ink-border text-xs font-mono text-slate-300 hover:border-tangerine-500 text-center transition-all">
+                                    Computer Vision
+                                </button>
+                                <button type="button" onclick="selectScope(this, 'AI Architecture Audit')" class="scope-btn p-3 rounded-xl bg-ink-800 border border-ink-border text-xs font-mono text-slate-300 hover:border-tangerine-500 text-center transition-all">
+                                    AI Model Consulting
+                                </button>
+                            </div>
+                            <input type="hidden" id="selectedScopeInput" name="project_scope" value="RAG & LLM Integration">
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="senderName" class="block text-xs font-mono text-slate-400 uppercase mb-2">Your Name</label>
+                                <input type="text" id="senderName" name="name" required placeholder="Alex Morgan" class="w-full px-4 py-3 rounded-xl bg-ink-800 border border-ink-border text-white text-sm placeholder-slate-500 focus:outline-none focus:border-tangerine-500 transition-colors">
+                            </div>
+                            <div>
+                                <label for="senderEmail" class="block text-xs font-mono text-slate-400 uppercase mb-2">Your Email</label>
+                                <input type="email" id="senderEmail" name="email" required placeholder="alex@company.com" class="w-full px-4 py-3 rounded-xl bg-ink-800 border border-ink-border text-white text-sm placeholder-slate-500 focus:outline-none focus:border-tangerine-500 transition-colors">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="senderMessage" class="block text-xs font-mono text-slate-400 uppercase mb-2">Project Brief</label>
+                            <textarea id="senderMessage" name="message" rows="4" required placeholder="Tell me about your AI requirements, dataset goals, and project timeline..." class="w-full px-4 py-3 rounded-xl bg-ink-800 border border-ink-border text-white text-sm placeholder-slate-500 focus:outline-none focus:border-tangerine-500 transition-colors resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" id="submitFormBtn" class="w-full py-4 rounded-xl bg-tangerine-500 hover:bg-tangerine-600 text-ink-900 font-heading font-bold text-base transition-all flex items-center justify-center gap-2 shadow-lg shadow-tangerine-500/20">
+                            <span>Send Inquiry</span>
+                            <i class="fa-solid fa-paper-plane text-sm"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-ink-border bg-ink-900 relative z-10 text-xs font-mono text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+                © <span id="yearSpan"></span> Ahmed Ghoneim. Hand-coded with intent. Powered by AI precision.
+            </div>
+            <div class="flex items-center gap-6 text-slate-400">
+                <a href="https://github.com/Ahmed-M-Gh" target="_blank" class="hover:text-tangerine-500 transition-colors">GitHub</a>
+                <a href="https://www.linkedin.com/in/ahmed-ghoneim-3450892b7" target="_blank" class="hover:text-tangerine-500 transition-colors">LinkedIn</a>
+                <a href="https://wa.me/201061693868" target="_blank" class="hover:text-tangerine-500 transition-colors">WhatsApp</a>
+                <a href="#hero" class="hover:text-white transition-colors">Top ↑</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Case Study Modal Drawer -->
+    <div id="workModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-ink-900/90 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
+        <div class="bento-card max-w-2xl w-full max-h-[90vh] overflow-hidden flex flex-col border border-ink-border shadow-2xl">
+            <div class="relative h-60 bg-ink-800 flex items-center justify-center p-4">
+                <img id="modalWorkImg" src="" alt="Case Study Image" class="w-full h-full object-cover"/>
+                <button onclick="closeWorkModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-ink-900/80 text-white flex items-center justify-center hover:bg-tangerine-500 hover:text-ink-900 transition-colors">
+                    <i class="fa-solid fa-xmark text-base"></i>
+                </button>
+            </div>
+            <div class="p-6 space-y-4 overflow-y-auto">
+                <h3 id="modalWorkTitle" class="font-heading font-bold text-2xl text-white">Project Title</h3>
+                <p id="modalWorkDesc" class="text-slate-300 text-xs leading-relaxed">Detailed description...</p>
+                
+                <div class="p-4 rounded-xl bg-ink-800 border border-ink-border">
+                    <div class="text-[10px] font-mono text-tangerine-500 uppercase font-bold mb-1">Key Impact Outcome</div>
+                    <div id="modalWorkMetric" class="text-sm font-semibold text-white">Metrics data...</div>
+                </div>
+
+                <div>
+                    <div class="text-xs font-mono text-slate-400 uppercase mb-2">Technologies Deployed</div>
+                    <div id="modalWorkTech" class="flex flex-wrap gap-2"></div>
+                </div>
+
+                <div class="pt-4 flex items-center justify-end gap-3 border-t border-ink-border">
+                    <button onclick="closeWorkModal()" class="px-5 py-2.5 rounded-xl bg-ink-800 text-slate-300 font-heading font-bold text-xs hover:bg-ink-700">Close</button>
+                    <a id="modalWorkGithub" href="#" target="_blank" class="px-5 py-2.5 rounded-xl bg-tangerine-500 text-ink-900 font-heading font-bold text-xs hover:bg-tangerine-600 flex items-center gap-1.5">
+                        GitHub Repo <i class="fa-brands fa-github text-sm"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toastNotification" class="fixed bottom-6 right-6 z-50 px-5 py-3 rounded-xl bento-card border border-tangerine-500/50 text-white text-xs font-mono shadow-2xl translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-acid-400 text-base"></i>
+        <span id="toastMsg">Action completed!</span>
+    </div>
+
+    <!-- External Custom JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
